@@ -24,7 +24,7 @@ Route::controller(NewsController::class)->prefix('admin')->group(function() {
 
  //【課題３】//
  Route::controller(AAAController::class)->prefix('xxx')->group(function() {
-    Route::get('bbb')
+    Route::get('bbb');
  }
 
  //【課題４】//
