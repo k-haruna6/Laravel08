@@ -21,7 +21,7 @@ use App\Http\Controllers\Admin\NewsController;
 Route::controller(NewsController::class)->prefix('admin')->group(function() {
     Route::get('news/create', 'add');
 });
-/*
+/*[課題３]
  Route::controller(AAAController::class)->prefix('xxx')->group(function() {
     Route::get('bbb');
  }
