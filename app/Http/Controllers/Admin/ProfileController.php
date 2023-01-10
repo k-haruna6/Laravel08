@@ -16,7 +16,6 @@ class ProfileController extends Controller
     {
         return view('admin.profile.create');
     }
-
     public function create(Request $request)
     {
         $this->validate($request, Profile::$rules);
@@ -46,12 +45,14 @@ class ProfileController extends Controller
         return view('admin.profile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
 
-    public function edit()
+    public function edit(Request $request)
     {
          $profile = Profile::find($request->id);
         if (empty($profile)) {
             abort(404);
         }
+        
+        
         return view('admin.profile.edit', ['profile_form' => $profile]);
     }
     
@@ -59,21 +60,30 @@ class ProfileController extends Controller
     {
          // Validationをかける
         $this->validate($request, Profile::$rules);
-        // News Modelからデータを取得する
         $profile = Profile::find($request->id);
-        // 送信されてきたフォームデータを格納する
         $profile_form = $request->all();
         
-         // 該当するデータを上書きして保存する
+    
+        unset($profile_form['_token']);
+        
+       
         $profile->fill($profile_form)->save();
 
 
-        // 以下を追記
         $history = new ProfileHistory();
         $history->profile_id = $profile->id;
         $history->edited_at = Carbon::now();
         $history->save();
 
         return redirect('admin/profile');
+    }
+    
+     public function delete(Request $request)
+    {
+        $profile = Profile::find($request->id);
+
+        $profile->delete();
+
+        return redirect('admin/profile/');
     }
 }

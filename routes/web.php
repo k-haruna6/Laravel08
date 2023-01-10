@@ -38,10 +38,15 @@ Route::controller(ProfileController::class)->prefix('admin')->name('admin.')->mi
     Route::get('profile/create','add')->name('profile.add');
     Route::post('profile/create','create')->name('profile.create');
     Route::get('profile','index')->name('profile.index');
-    Route::get('profile/edit','add')->name('profile.add');
+    Route::get('profile/edit','edit')->name('profile.edit');
     Route::post('profile/edit','update')->name('profile.update');
+    Route::get('profile/delete','delete')->name('profile.delete');
  });
  
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+use App\Http\Controllers\NewsController as PublicNewsController;
+Route::get('/',[PublicNewsController::class, 'index'])->name('news.index');

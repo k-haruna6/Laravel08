@@ -26,13 +26,13 @@
                     <div class="form-group row">
                         <label class="col-md-2">性別</label>
                         <div class="col-md-10">
-                             <input type="text" class="form-control" name="gender" value="{{ old('gender') }}">
+                            <input type="text" class ="form-control" name="gender" value="{{ old('gender') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">趣味</label>
                         <div class="col-md-10">
-                             <textarea type="text" class="form-control" name="hobby" rows="5">{{ old('introduction') }}</textarea>
+                            <textarea type="text" class="form-control" name="hobby" rows="5">{{ old('hobby') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
