@@ -46,7 +46,7 @@
                                     <td>{{ Str::limit($profile->name, 100) }}</td>
                                     <td>{{ Str::limit($profile->gender, 100) }}</td>
                                     <td>{{ Str::limit($profile->hobby, 250) }}</td>
-                                    <td>{{ Str::limit($profile->introductionr, 250) }}</td>
+                                    <td>{{ Str::limit($profile->introduction, 250) }}</td>
                                     
                                      <td>
                                         <div>
