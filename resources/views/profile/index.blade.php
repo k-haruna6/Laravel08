@@ -42,7 +42,10 @@
                                 </div>
                                 <div class="introduction">
                                     {{ Str::limit($post->introduction, 1500) }}
-                                </div>    
+                                </div>
+                                <div>
+                                    <p>テキスト</p>
+                                </div>
                             </div>
                         </div>
                     </div>
